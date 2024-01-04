@@ -1,0 +1,62 @@
+
+server:
+  port: 9190
+
+spring:
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 5MB
+        max-request-size: 5MB
+          
+
+
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: eidiko@123
+        url: jdbc:mysql://localhost:3306/eidiko_emp_portal
+#        url: jdbc:mysql://192.168.2.47:3306/test
+        username: eidiko_uat
+
+     
+    mail:
+        host: smtp.gmail.com
+        password: rbeuaiebaljmxegp
+        port: 587
+        properties:
+            mail:
+                smtp:
+                    auth: true
+                    starttls:
+                        enable: true
+        username: vikaskumar.gupta@eidiko.com       
+        
+        
+    jpa: 
+        properties:
+            hibernate:
+#                format_sql: true
+        hibernate:
+            ddl-auto: none
+
+        show-sql: true
+    jackson:
+      time-zone: IST  
+
+logging:
+   file:
+    name: "C:/logs/employee-service-error.log"  
+   logback:
+    rollingpolicy:
+      file-name-pattern: C:/logs/employee-service-%d{yyyy-MM-dd}.%i.log
+
+files:
+  storage: D:/Surender/Eidiko Internal Portal/GIT_Code
+ # storage: files/
+
+services:
+  biomteric_service:
+    url: http://localhost:9977/api/v1
+  task_details_service:
+    url: http://localhost:9922/api/V1/
+   
